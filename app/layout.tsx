@@ -2,9 +2,6 @@ import type { Metadata } from 'next'
 import { ThemeProvider } from 'next-themes'
 import { Header } from '@/components/layout/header'
 import { Footer } from '@/components/layout/footer'
-import { ChatProvider } from '@/lib/chat-context'
-import { ChatButton } from '@/components/ai/chat-button'
-import { ChatPanel } from '@/components/ai/chat-panel'
 import { BritonJsonLd, LocalBusinessJsonLd } from '@/components/seo/json-ld'
 import './globals.css'
 
@@ -42,13 +39,9 @@ export default function RootLayout({
       </head>
       <body className="font-sans bg-bg-base text-text-primary antialiased">
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
-          <ChatProvider>
-            <Header />
-            <main>{children}</main>
-            <Footer />
-            <ChatButton />
-            <ChatPanel />
-          </ChatProvider>
+          <Header />
+          <main>{children}</main>
+          <Footer />
         </ThemeProvider>
       </body>
     </html>
